@@ -1,0 +1,9 @@
+body { font-family: Arial, sans-serif; background: #f5f6fa; margin: 0; }
+main { max-width: 850px; margin: 40px auto; background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+button { padding: 10px 14px; border: 0; border-radius: 8px; cursor: pointer; }
+.card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; margin-top: 16px; }
+img { max-width: 280px; border-radius: 12px; display: block; margin-top: 12px; }
+pre { background: #111827; color: #e5e7eb; padding: 14px; border-radius: 8px; overflow:auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background: #f0f0f0; }

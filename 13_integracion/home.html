@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carpeta 13 | Panel de práctica</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header py-4">
+    <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+      <div>
+        <span class="badge rounded-pill text-bg-light mb-2">Carpeta 13</span>
+        <h1 class="h3 mb-1">Integración final de JavaScript</h1>
+        <p class="mb-0 opacity-75">Eventos, storage, APIs, librerías y gráfico.</p>
+      </div>
+      <div class="text-md-end">
+        <p class="mb-1">Usuario: <strong id="nombreSesion">Sin sesión</strong></p>
+        <button id="btnCerrarSesion" class="btn btn-light btn-sm">Cerrar sesión simulada</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-4">
+    <section class="row g-3 mb-4">
+      <div class="col-md-3">
+        <article class="kpi-card">
+          <span>Total consultas país</span>
+          <strong id="kpiPaises">0</strong>
+        </article>
+      </div>
+      <div class="col-md-3">
+        <article class="kpi-card">
+          <span>Último país</span>
+          <strong id="kpiUltimoPais">-</strong>
+        </article>
+      </div>
+      <div class="col-md-3">
+        <article class="kpi-card">
+          <span>Última ciudad clima</span>
+          <strong id="kpiCiudad">-</strong>
+        </article>
+      </div>
+      <div class="col-md-3">
+        <article class="kpi-card">
+          <span>Última temperatura</span>
+          <strong id="kpiTemperatura">-</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="card shadow-sm">
+      <div class="card-header bg-white">
+        <ul class="nav nav-tabs card-header-tabs" id="tabsPractica" role="tablist">
+          <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabPaises" type="button">Países</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabClima" type="button">Clima</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabTemporizador" type="button">Temporizador</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabAlertas" type="button">Alertas</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabGrafico" type="button">Gráfico</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabStorage" type="button">Storage</button></li>
+        </ul>
+      </div>
+
+      <div class="card-body tab-content">
+        <section class="tab-pane fade show active" id="tabPaises">
+          <h2 class="h5">API de países con bandera en el selector</h2>
+          <p class="text-muted">El selector debe mostrar el país con su bandera al lado, por ejemplo: Ecuador.</p>
+           <div class="row g-3 align-items-end">
+            <div class="col-md-8">
+              <label for="selectPais" class="form-label">Seleccione nacionalidad</label>
+              <div class="d-flex align-items-center gap-3">
+                <select id="selectPais" class="form-select">
+                  <option value="">Cargando paises...</option>
+                </select>
+                <img id="banderaPreview" src="" alt="Bandera"
+                  style="width:56px; height:auto; border-radius:6px; border:1px solid #ddd; display:none;">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <button id="btnGuardarPais" class="btn btn-primary w-100">Guardar nacionalidad</button>
+            </div>
+          </div>
+          <div id="resultadoPais" class="mt-4"></div>
+        </section>
+
+        <section class="tab-pane fade" id="tabClima">
+          <h2 class="h5">API de clima actual</h2>
+          <p class="text-muted">Seleccione una ciudad de Ecuador y consulte datos actuales de clima.</p>
+          <div class="row g-3 align-items-end">
+            <div class="col-md-8">
+              <label for="selectCiudad" class="form-label">Ciudad</label>
+              <select id="selectCiudad" class="form-select">
+                <option value="-0.25,-79.15,Santo Domingo">Santo Domingo</option>
+                <option value="-1.03,-79.46,Quevedo">Quevedo</option>
+                <option value="-0.18,-78.47,Quito">Quito</option>
+                <option value="-2.17,-79.90,Guayaquil">Guayaquil</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <button id="btnConsultarClima" class="btn btn-primary w-100">Consultar clima</button>
+            </div>
+          </div>
+          <div id="resultadoClima" class="mt-4"></div>
+        </section>
+
+        <section class="tab-pane fade" id="tabTemporizador">
+          <h2 class="h5">Evento input con setTimeout</h2>
+          <p class="text-muted">Al escribir debe aparecer "Escribiendo...". Después de 1 segundo se limpia el mensaje.</p>
+          <label for="campoMensaje" class="form-label">Escriba un mensaje</label>
+          <input type="text" id="campoMensaje" class="form-control" placeholder="Escriba cualquier texto">
+          <p id="estadoMensaje" class="mt-3 fw-bold text-primary"></p>
+        </section>
+
+        <section class="tab-pane fade" id="tabAlertas">
+          <h2 class="h5">SweetAlert2 y Toastify</h2>
+          <p class="text-muted">Botones para practicar confirmaciones y notificaciones visuales.</p>
+          <button id="btnSweet" class="btn btn-danger me-2">Probar confirmación</button>
+          <button id="btnToast" class="btn btn-success">Probar notificación</button>
+        </section>
+
+        <section class="tab-pane fade" id="tabGrafico">
+          <h2 class="h5">Chart.js con datos modificables</h2>
+          <p class="text-muted">El gráfico usa datos simples. El botón genera valores aleatorios y actualiza el gráfico con JavaScript.</p>
+          <div class="chart-box">
+            <canvas id="graficoPractica"></canvas>
+          </div>
+          <button id="btnActualizarGrafico" class="btn btn-primary mt-3">Actualizar gráfico con números aleatorios</button>
+        </section>
+
+        <section class="tab-pane fade" id="tabStorage">
+          <h2 class="h5">sessionStorage y localStorage</h2>
+          <p class="text-muted">sessionStorage se borra al cerrar la pestaña. localStorage permanece guardado en el navegador.</p>
+          <div class="row g-3">
+            <div class="col-md-6"><div id="datosSession" class="info-box"></div></div>
+            <div class="col-md-6"><div id="datosLocal" class="info-box"></div></div>
+          </div>
+          <div class="mt-3">
+            <button id="btnGuardarLocal" class="btn btn-outline-primary me-2">Guardar dato en localStorage</button>
+            <button id="btnLimpiarLocal" class="btn btn-outline-danger me-2">Limpiar localStorage</button>
+            <button id="btnVerStorage" class="btn btn-outline-secondary">Actualizar vista</button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

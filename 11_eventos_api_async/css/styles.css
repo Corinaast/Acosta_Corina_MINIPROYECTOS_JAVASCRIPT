@@ -1,0 +1,6 @@
+.imagen-perro {
+  max-width: 350px;
+  min-height: 180px;
+  object-fit: cover;
+  background-color: #f1f1f1;
+}

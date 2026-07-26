@@ -1,0 +1,28 @@
+{
+  "institucion": {
+    "nombre": "Universidad de practica",
+    "periodo": "2026",
+    "estudiantes": [
+      {
+        "id": 1,
+        "nombre": "Ana Torres",
+        "materias": [
+          {
+            "nombre": "Aplicaciones Web",
+            "notas": [18, 17, 19]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "nombre": "Luis Mora",
+        "materias": [
+          {
+            "nombre": "Aplicaciones Web",
+            "notas": [14, 13, 15]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carpeta 13 | Inicio de sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+  <main class="container min-vh-100 d-flex align-items-center justify-content-center">
+    <section class="login-card shadow-lg">
+      <div class="text-center mb-4">
+        <span class="badge rounded-pill text-bg-primary mb-3">Práctica final</span>
+        <h1 class="h3 mb-2">Integración final con JavaScript</h1>
+        <p class="text-muted mb-0">Ingrese un nombre para simular una sesión de usuario.</p>
+      </div>
+
+      <form id="formLogin" autocomplete="off">
+        <div class="mb-3">
+          <label for="nombreUsuario" class="form-label">Nombre del estudiante</label>
+          <input type="text" id="nombreUsuario" class="form-control form-control-lg" placeholder="Ejemplo: Ana Torres">
+          <small id="estadoEscritura" class="text-primary fw-semibold"></small>
+        </div>
+
+        <div class="mb-3">
+          <label for="claveUsuario" class="form-label">Contraseña de práctica</label>
+          <input type="password" id="claveUsuario" class="form-control" placeholder="Escriba cualquier valor">
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-lg">Iniciar práctica</button>
+          <button type="button" id="btnCodigo" class="btn btn-outline-secondary">Generar número aleatorio</button>
+        </div>
+      </form>
+
+      <div id="resultadoCodigo" class="alert alert-light border mt-4 mb-0 text-center">
+        Código de prueba: pendiente
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.caja-evento {
+  border: 2px dashed #777;
+  border-radius: 10px;
+  padding: 25px;
+  text-align: center;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.caja-evento.activa {
+  background-color: #d1e7dd;
+  border-color: #198754;
+  transform: scale(1.02);
+}

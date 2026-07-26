@@ -1,0 +1,18 @@
+body {
+  background-color: #f4f6f9;
+}
+
+.producto-img {
+  height: 180px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 12px;
+}
+
+.producto-card {
+  height: 100%;
+}
+
+.producto-descripcion {
+  min-height: 72px;
+}
